@@ -1,13 +1,21 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const app = express();
-const port = 4000;
 
-const ObjectId = require('mongoose').Types.ObjectId; 
+// App Config
+const app = express();
+const port = process.env.PORT || 8001;
 const connection_url = 'mongodb+srv://admin:zN2yWWN2b94mlWGm@cluster0.asois.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
-mongoose.connect(connection_url, {useNewUrlParser: true, useUnifiedTopology: true});
+// Middlewares
+app.use(cors());
+app.use(express.json());
+
+// DB config
+mongoose.connect(connection_url, {
+  useNewUrlParser: true, 
+  useUnifiedTopology: true
+});
 
 const userSchema = new mongoose.Schema({
   username: String,
@@ -29,9 +37,7 @@ const todosSchema = new mongoose.Schema({
 
 const Todos = mongoose.model('todos', todosSchema);
 
-app.use(cors());
-app.use(express.json());
-
+// API Endpoints
 app.post("/register", async (req, res) => {
   const {username, password} = req.body;
   const user = await User.findOne({ username }).exec();
@@ -110,6 +116,6 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   app.listen(port, () => {
-    console.log("hi")
+    console.log(`listening on localhost: ${port}`)
   });
 });
