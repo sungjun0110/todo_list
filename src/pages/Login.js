@@ -16,9 +16,9 @@ function Login() {
   const [error, setError] = useState("");
   const [, setCredentials] = useContext(CredentialsContext);
 
-  const login = (e) => {
+  const login = async (e) => {
     e.preventDefault();
-    fetch("https://sc-todo-list.herokuapp.com/login", {
+    await fetch("https://sc-todo-list.herokuapp.com/login", {
       method: "POST", 
       headers: {
         "Content-Type": "application/json", 

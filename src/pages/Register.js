@@ -9,9 +9,9 @@ function Register() {
   const [error, setError] = useState("");
   const [, setCredentials] = useContext(CredentialsContext);
 
-  const register = (e) => {
+  const register = async (e) => {
     e.preventDefault();
-    fetch("https://sc-todo-list.herokuapp.com/register", {
+    await fetch("https://sc-todo-list.herokuapp.com/register", {
       method: "POST", 
       headers: {
         "Content-Type": "application/json", 

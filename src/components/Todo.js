@@ -8,8 +8,8 @@ function Todo() {
   const [credentials, setCredentials] = useContext(CredentialsContext);
   const [filter, setFilter] = useState('uncompleted');
 
-  const persist = (newTodos) => {
-    fetch("https://sc-todo-list.herokuapp.com/todos", {
+  const persist = async (newTodos) => {
+    await fetch("https://sc-todo-list.herokuapp.com/todos", {
       method: "POST", 
       headers: {
         "Content-Type": "application/json",
@@ -19,8 +19,8 @@ function Todo() {
     }).then(() => {});
   };
 
-  useEffect(() => {
-    fetch("https://sc-todo-list.herokuapp.com/todos", {
+  useEffect(async () => {
+    await fetch("https://sc-todo-list.herokuapp.com/todos", {
       method: "GET", 
       headers: {
         "Content-Type": "application/json",
