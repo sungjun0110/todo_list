@@ -11,7 +11,7 @@ function Register() {
 
   const register = (e) => {
     e.preventDefault();
-    fetch(`https://sc-todo-list.herokuapp.com/register`, {
+    fetch("https://sc-todo-list.herokuapp.com/register", {
       method: "POST", 
       headers: {
         "Content-Type": "application/json", 

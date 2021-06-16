@@ -18,7 +18,7 @@ function Login() {
 
   const login = (e) => {
     e.preventDefault();
-    fetch(`https://sc-todo-list.herokuapp.com/login`, {
+    fetch("https://sc-todo-list.herokuapp.com/login", {
       method: "POST", 
       headers: {
         "Content-Type": "application/json", 
