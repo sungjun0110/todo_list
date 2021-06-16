@@ -11,7 +11,7 @@ function Register() {
 
   const register = async (e) => {
     e.preventDefault();
-    await fetch("https://sc-todo-list.herokuapp.com/register", {
+    await fetch("https://sc-todo-backend.herokuapp.com/register", {
       method: "POST", 
       headers: {
         "Content-Type": "application/json", 

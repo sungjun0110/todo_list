@@ -9,7 +9,7 @@ function Todo() {
   const [filter, setFilter] = useState('uncompleted');
 
   const persist = async (newTodos) => {
-    await fetch("https://sc-todo-list.herokuapp.com/todos", {
+    await fetch("https://sc-todo-backend.herokuapp.com/todos", {
       method: "POST", 
       headers: {
         "Content-Type": "application/json",
@@ -20,7 +20,7 @@ function Todo() {
   };
 
   useEffect(async () => {
-    await fetch("https://sc-todo-list.herokuapp.com/todos", {
+    await fetch("https://sc-todo-backend.herokuapp.com/todos", {
       method: "GET", 
       headers: {
         "Content-Type": "application/json",
