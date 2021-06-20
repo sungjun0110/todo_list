@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 function Todo() {
   const [todos, setTodos] = useState([]);
   const [todoText, settodoText] = useState("");
-  const [credentials, setCredentials] = useContext(CredentialsContext);
+  const [credentials,] = useContext(CredentialsContext);
   const [filter, setFilter] = useState('uncompleted');
 
   const persist = async (newTodos) => {
@@ -19,8 +19,8 @@ function Todo() {
     }).then(() => {});
   };
 
-  useEffect(async () => {
-    await fetch("https://sc-todo-backend.herokuapp.com/todos", {
+  useEffect(() => {
+    fetch("https://sc-todo-backend.herokuapp.com/todos", {
       method: "GET", 
       headers: {
         "Content-Type": "application/json",

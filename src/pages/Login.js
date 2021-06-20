@@ -44,8 +44,10 @@ function Login() {
   const history = useHistory();
 
   return (
-    <div>
-      <h1>Login</h1>
+    <div id="main-div">
+      <div id="title-txt">
+        <h1>Login</h1>
+      </div>
       {!!error && (<span style={{ color: 'red' }}>{error}</span>)}
       <form onSubmit={login}>
         <input 

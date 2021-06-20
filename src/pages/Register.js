@@ -37,8 +37,10 @@ function Register() {
   const history = useHistory();
 
   return (
-    <div>
-      <h1>Register</h1>
+    <div id='main-div'>
+      <div id="title-txt">
+        <h1>Register</h1>
+      </div>
       {!!error && (<span style={{ color: 'red' }}>{error}</span>)}
       <form onSubmit={register}>
         <input 
